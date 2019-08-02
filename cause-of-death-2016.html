@@ -28,6 +28,17 @@
       margin: 0;
     }
 
+    .annotation {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      float: right;
+      z-index: 10;
+      width: 500px;
+      font-weight: bold;
+      text-align: right;
+    }
+
   </style>
 </head>
 
@@ -109,7 +120,7 @@
         .data(data_us)
         .enter()
         .append("rect")
-        .style("fill", "steelblue")
+        .style("fill", "rgb(0, 123, 255)")
         .attr("x", function(d) {
           return xScale(d["Cause Name"]);
         })
@@ -136,12 +147,12 @@
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
 
-      svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width)
-        .attr("y", margin.top)
-        .text("Heart disease was the leading cause of death in 2016.");
-        
+      d3.select("body").append("div")
+        .attr("class", "annotation")
+        .text("2016's leading cause of death is Heart Disease, with an adjusted death rate of 165.5 per 100,000 population")
+        .style("left", ((window.innerWidth - margin.right - 500) + "px"))
+        .style("top", (margin.top + "px"));
+
 
 
     }).catch(function() {

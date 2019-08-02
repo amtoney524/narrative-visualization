@@ -57,6 +57,7 @@
     div.tooltip {
       position: absolute;
       text-align: center;
+      top: 0;
       width: 120px;
       height: 70px;
       padding: 2px;
@@ -66,6 +67,17 @@
       border: 0px;
       border-radius: 8px;
       pointer-events: none;
+    }
+
+    .annotation {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      float: right;
+      z-index: 10;
+      width: 500px;
+      font-weight: bold;
+      text-align: right;
     }
 
   </style>
@@ -109,16 +121,8 @@
         return parsed_data;
       }
 
-      var data_kidney_disease = cause_of_death(causes[0]);
       var data_heart_disease = cause_of_death(causes[1]);
-      var data_cancer = cause_of_death(causes[2]);
-      var data_suicide = cause_of_death(causes[3]);
-      var data_diabetes = cause_of_death(causes[4]);
-      var data_alzheimers = cause_of_death(causes[5]);
-      var data_clrd = cause_of_death(causes[6]);
-      var data_influenza = cause_of_death(causes[7]);
-      var data_stroke = cause_of_death(causes[8]);
-      var data_unintentional = cause_of_death(causes[9]);
+
 
       // set margins
       var margin = {
@@ -141,7 +145,7 @@
 
       // Y scale will use the deaths for the year
       var yScale = d3.scaleLinear()
-        .domain([0, 280]) // input: age-adjusted death rate
+        .domain([160, 270]) // input: age-adjusted death rate
         .range([height, 0]); // output
 
       // Function for generating lines from the data
@@ -185,15 +189,6 @@
       }
 
       append_path(data_heart_disease);
-      append_path(data_kidney_disease);
-      append_path(data_cancer);
-      append_path(data_suicide);
-      append_path(data_diabetes);
-      append_path(data_alzheimers);
-      append_path(data_clrd);
-      append_path(data_influenza);
-      append_path(data_stroke);
-      append_path(data_unintentional);
 
       // Define the div for the tooltip
       var div = d3.select("body").append("div")
@@ -231,7 +226,7 @@
           });;
       }
 
-      append_circle(data_us);
+      append_circle(data_heart_disease);
 
       // add x-axis
       svg.append("text")
@@ -248,6 +243,11 @@
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
 
+      d3.select("body").append("div")
+        .attr("class", "annotation")
+        .text("From its peak in 1999, the age-adjusted death rate for Heart Disease has decreased nearly 38% from 266.5 to 165.5")
+        .style("left", ((window.innerWidth - margin.right - 500) + "px"))
+        .style("top", (margin.top + "px"));
 
 
 

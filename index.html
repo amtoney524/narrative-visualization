@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +36,7 @@
       overflow-x: scroll;
       overflow-y: hidden;
     }
+
   </style>
 </head>
 
@@ -43,7 +45,7 @@
     <h1>NCHS &ndash; Leading Causes of Death: United States</h1>
     <p>Ashley Toney | CS 498: Data Visualization - Summer 2019</p>
 
-    <p>Here, we'll aim to determine what the leading cause of death is in the United States and how it has changed over the past 18 years. This visualization aims to provide insight into the 10 leading causes of death in the United States as recorded over the past 18 years. The source of the data can be found at <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/data">data.cdc.gov</a>.</p>
+    <p>What are we most at risk of dying from in the United States? This visualization aims to provide insight into the 10 leading causes of death examined over the past 18 years. The dataset <i>NCHS &ndash; Leading Causes of Death: United States</i> can be found at <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/data" target="_blank">data.cdc.gov</a>.</p>
     <br>
     <h4>The Data</h4>
     <p>The dataset is provided by the National Center for Health Statistics and presents the age-adjusted death rates for the 10 leading causes of death in the United States. These statistics are based on the underlying cause of death derived from US resident death certificates filed between 1999-2016. </p>
@@ -53,7 +55,7 @@
       <li><b>Year:</b> year of death (1999-2016)</li>
       <li><b>Cause Name:</b> underlying cause of death</li>
       <li><b>State:</b> state in which the death certificate was filed (includes each of the 50 states, DC, and the entire US)</li>
-      <li><b>Age-adjusted Death Rate:</b> death rate adjusted to account for the aging population</li>
+      <li><b>Age-adjusted Death Rate:</b> death rate adjusted to account for aging population (deaths per 100,000 population)</li>
     </ul>
     <br>
     <h6>II. 10 Leading Causes of Death</h6>
@@ -85,14 +87,24 @@
     <br>
     <h4>US Leading Causes of Death: 2016</h4>
 
-    <p>If we look at the most recent data, we can see that Heart Disease was the leading cause of death in 2016.</p>
+    <p>If we look at the most recent data, we can see that in 2016, heart disease was the leading cause of death. Cancer was the second most deadly.</p>
 
     <iframe src="cause-of-death-2016.html" scrolling="no"></iframe>
-    
+
+    <br />
     <br />
 
+    <h4>Heart Disease Age-Adjusted Death Rate: 1999-2016</h4>
+
+    <p>Now that we know heart disease is our leading cause of death, we want to examine how heart disease has affected Americans over the years. We can see from the data that death rates are decline, from their peak in 1999.</p>
+
+
+    <iframe src="heart-disease-1999-2016.html" scrolling="no"></iframe>
+
+    <br>
+
     <h4>US Leading Causes of Death: 1999-2016</h4>
-    
+
     <p>Has heart disease always been the leading cause of death? The data shows yes, but we're also seeing a decline in the age-adjusted death rates.</p>
 
     <br />
@@ -101,12 +113,6 @@
 
     <br />
 
-    <h4>Individual States</h4>
-
-    <p>After exploring what the leading cause of death is nationwide, it would be interesting to see how each state compares.</p>
-
-
-    <p>info</p>
   </div>
 
 
@@ -117,4 +123,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</body></html>
+</body>
+
+</html>
