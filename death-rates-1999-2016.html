@@ -33,9 +33,6 @@
       display: none;
     }
 
-    g.x.axis>.tick:last-child {
-      display: none;
-    }
 
     /* Lines don't have a fill, stroke colors are set in d3 */
 
@@ -124,10 +121,10 @@
 
       // set margins
       var margin = {
-          top: 50,
-          right: 50,
+          top: 40,
+          right: 62,
           bottom: 50,
-          left: 70
+          left: 62
         },
         width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
         ,
@@ -138,7 +135,7 @@
 
       // X scale will use the year of our data
       var xScale = d3.scaleLinear()
-        .domain([1998, 2017]) // input: years
+        .domain([1998, 2016]) // input: years
         .range([0, width]); // output
 
       // Y scale will use the deaths for the year
@@ -237,9 +234,9 @@
 
       // add x-axis
       svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width)
-        .attr("y", height - 6)
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", height + 40)
         .text("Year");
 
       // add y-axis

@@ -27,6 +27,7 @@
       padding: 0;
       margin: 0;
     }
+
   </style>
 </head>
 
@@ -56,13 +57,13 @@
       var data_us = data.filter(function(d) {
         return d.State === "United States" && d.Year === "2016" && d["Cause Name"] !== "All causes";
       });
-      
+
       // set margins
       var margin = {
-          top: 50,
-          right: 50,
+          top: 40,
+          right: 62,
           bottom: 50,
-          left: 70
+          left: 62
         },
         width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
         ,
@@ -122,8 +123,8 @@
 
       // add x-axis
       svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width / 2 + margin.left)
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
         .attr("y", height + 40)
         .text("Cause of Death");
 
@@ -135,9 +136,19 @@
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
 
+      svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width)
+        .attr("y", margin.top)
+        .text("Heart disease was the leading cause of death in 2016.");
+        
+
 
     }).catch(function() {
       console.log("Error loading file");
     });
   }
-</script></html>
+
+</script>
+
+</html>

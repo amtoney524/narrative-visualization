@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Document</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>NCHS &ndash; Leading Causes of Death: United States</title>
 
   <style>
     html,
@@ -31,20 +32,21 @@
       padding: 0;
       display: block;
       border: 1px solid lightgray;
-      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>NCHS: Leading Causes of Death: United States</h1>
+    <h1>NCHS &ndash; Leading Causes of Death: United States</h1>
     <p>Ashley Toney | CS 498: Data Visualization - Summer 2019</p>
-    
+
     <p>Here, we'll aim to determine what the leading cause of death is in the United States and how it has changed over the past 18 years. This visualization aims to provide insight into the 10 leading causes of death in the United States as recorded over the past 18 years. The source of the data can be found at <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/data">data.cdc.gov</a>.</p>
     <br>
     <h4>The Data</h4>
-    <p>The dataset is provided by the National Center for Health Statistics and presents the age-adjusted deathrates for the 10 leading causes of death in the United States. These statistics are based on the underlying cause of death derived from US resident death certificates filed between 1999-2016. </p>
+    <p>The dataset is provided by the National Center for Health Statistics and presents the age-adjusted death rates for the 10 leading causes of death in the United States. These statistics are based on the underlying cause of death derived from US resident death certificates filed between 1999-2016. </p>
 
     <h6>I. Dimensions</h6>
     <ul>
@@ -79,21 +81,23 @@
         </tr>
       </tbody>
     </table>
-    
+
     <br>
     <h4>US Leading Causes of Death: 2016</h4>
+
+    <p>If we look at the most recent data, we can see that Heart Disease was the leading cause of death in 2016.</p>
+
+    <iframe src="cause-of-death-2016.html" scrolling="no"></iframe>
     
+    <br />
+
+    <h4>US Leading Causes of Death: 1999-2016</h4>
     
-    <iframe src="cause-of-death-2016.html"></iframe>
-
-
-    <p>If we look at the most recent data, we can seee that Heart Disease was the leading cause of death in 2016.</p>
-
-    <h4>Leading Causes of Death Nationwide</h4>
+    <p>Has heart disease always been the leading cause of death? The data shows yes, but we're also seeing a decline in the age-adjusted death rates.</p>
 
     <br />
 
-    <iframe src="death-rates-1999-2016.html"></iframe>
+    <iframe src="death-rates-1999-2016.html" scrolling="no"></iframe>
 
     <br />
 
