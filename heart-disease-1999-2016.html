@@ -159,10 +159,7 @@
         svg.append("path")
           .datum(data_set) // Binds data to the line 
           .attr("class", "line") // Assign classes 
-          .style("stroke", function(d) {
-            var index = causes.indexOf(d[0]["Cause Name"]);
-            return d3.interpolateRainbow((index / causes.length));
-          })
+          .style("stroke", "rgb(0, 123, 255)")
           .attr("d", line); // Calls the line generator 
       }
 
