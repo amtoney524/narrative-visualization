@@ -51,6 +51,21 @@
       stroke: #fff;
     }
 
+    mark {
+      border-radius: 3px;
+      color: white
+    }
+
+    mark.hd {
+      background-color: rgb(191, 60, 175);
+    }
+
+    mark.st {
+      background-color: rgb(35, 171, 216);
+    }
+
+
+
     /** set visual feedback to help user see which dot the tooltip is for **/
     circle.dot:hover {
       stroke-width: 2;
@@ -71,15 +86,33 @@
       border-radius: 8px;
       pointer-events: none;
     }
-    
-    .tooltip > p {
+
+    .tooltip>p {
       padding: 0;
       margin: 0;
     }
+
   </style>
 </head>
 
 <body onload="init()">
+
+  <div class="form-check">
+    <input class="form-check-input" id="cancer" type="checkbox" checked>
+    <label class="form-check-label" for="cancer">Cancer</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="diabetes" type="checkbox" checked>
+    <label class="form-check-label" for="diabetes">Diabetes</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="heartdisease" type="checkbox" checked>
+    <label class="form-check-label" for="heartdisease">Heart Disease</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="stroke" type="checkbox" checked>
+    <label class="form-check-label" for="stroke">Stroke</label>
+  </div>
 
 
   <!-- Bootstrap dependencies -->
@@ -89,10 +122,39 @@
 </body>
 
 <script>
+  $('#cancer').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".cancer").style("display", display);
+  });
+  $('#diabetes').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".diabetes").style("display", display);
+  });
+  $('#heartdisease').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".heartdisease").style("display", display);
+  });
+  $('#stroke').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".stroke").style("display", display);
+  });
+
   // local test data: 
   // var data_src = "/data/NCHS_-_Leading_Causes_of_Death__United_States.csv";
   // production data:
   var data_src = "https://amtoney524.github.io/narrative-visualization/data/NCHS_-_Leading_Causes_of_Death__United_States.csv";
+
+  // set margins
+  var margin = {
+      top: 40,
+      right: 100,
+      bottom: 50,
+      left: 100
+    },
+    width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
+    ,
+    height = window.innerHeight - margin.top - margin.bottom; // Use the window's height, substract top and bottom margins
+
 
 
   async function init() {
@@ -128,16 +190,6 @@
       var data_stroke = cause_of_death(causes[8]);
       var data_unintentional = cause_of_death(causes[9]);
 
-      // set margins
-      var margin = {
-          top: 40,
-          right: 100,
-          bottom: 50,
-          left: 100
-        },
-        width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
-        ,
-        height = window.innerHeight - margin.top - margin.bottom; // Use the window's height, substract top and bottom margins
 
       // number of datapoints
       var n = years.length;
@@ -184,7 +236,9 @@
       function append_path(data_set) {
         svg.append("path")
           .datum(data_set) // Binds data to the line 
-          .attr("class", "line") // Assign classes 
+          .attr("class", function(d) {
+            return "line" + " " + (d[0]["Cause Name"]).replace(/\s+/g, '').toLowerCase();
+          })
           .style("stroke", function(d) {
             var index = causes.indexOf(d[0]["Cause Name"]);
             return d3.interpolateRainbow((index / causes.length));
@@ -213,7 +267,9 @@
         svg.selectAll(".dot")
           .data(data_set)
           .enter().append("circle") // Uses the enter().append() method
-          .attr("class", "dot") // Assign a class for styling
+          .attr("class", function(d) {
+            return "dot" + " " + (d["Cause Name"]).replace(/\s+/g, '').toLowerCase();
+          }) // Assign a class for styling
           .attr("cx", function(d, i) {
             return xScale(d.Year)
           })
@@ -260,9 +316,11 @@
 
 
 
-
     }).catch(function() {
       console.log("Error loading file");
     });
   }
-</script></html>
+
+</script>
+
+</html>
