@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Document</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    td {
+      width: 50%;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      padding-top: 40px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 75%;
+      padding: 0;
+      display: block;
+      border: 1px solid lightgray;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>NCHS: Leading Causes of Death: United States</h1>
+    <p>Ashley Toney | CS 498: Data Visualization - Summer 2019</p>
+    
+    <p>Here, we'll aim to determine what the leading cause of death is in the United States and how it has changed over the past 18 years. This visualization aims to provide insight into the 10 leading causes of death in the United States as recorded over the past 18 years. The source of the data can be found at <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/data">data.cdc.gov</a>.</p>
+    <br>
+    <h4>The Data</h4>
+    <p>The dataset features death rate statistics captured from each of the 50 states between the years 1999-2016.</p>
+
+    <h6>I. Dimensions</h6>
+    <ul>
+      <li><b>Year:</b> </li>
+      <li><b>Cause Name:</b> any of the 10 leading causes of death</li>
+      <li><b>State:</b> data captured for the 50 states, Washington DC, and the United States</li>
+      <li><b>Age-adusted Death Reate:</b> death rate adjusted to count for the aging population</li>
+    </ul>
+    <br>
+    <h6>II. Leading Causes of Death</h6>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>Alzheimer's disease</td>
+          <td>Influenza and pneumonia</td>
+        </tr>
+        <tr>
+          <td>Cancer</td>
+          <td>Kidney disease</td>
+        </tr>
+        <tr>
+          <td>Chronic lower respiratory diseases (CLRD)</td>
+          <td>Stroke</td>
+        </tr>
+        <tr>
+          <td>Diabetes</td>
+          <td>Suicide</td>
+        </tr>
+        <tr>
+          <td>Heart disease</td>
+          <td>Unintentional injuries</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <br>
+    <h4>US Leading Causes of Death: 2016</h4>
+
+
+    <p>If we look at the most recent data, we can seee that Heart Disease was the leading cause of death in 2016.</p>
+
+    <h4>Leading Causes of Death Nationwide</h4>
+
+    <br />
+
+    <iframe src="adge-adjusted-death-rate.html" scrolling="no"></iframe>
+
+    <br />
+
+    <h4>Individual States</h4>
+
+    <p>After exploring what the leading cause of death is nationwide, it would be interesting to see how each state compares.</p>
+
+
+    <p>info</p>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body></html>
