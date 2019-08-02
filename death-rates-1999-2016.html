@@ -64,6 +64,21 @@
       background-color: rgb(35, 171, 216);
     }
 
+    #forms {
+      width: 180px;
+      font-size: 12px;
+      line-height: 18px;
+      position: absolute;
+      z-index: 10;
+      background-color: white;
+      border: 1px solid lightgrey;
+      border-radius: 2px;
+      padding: 4px;
+    }
+    
+    #forms > div {
+      margin-left: 6px;
+    }
 
 
     /** set visual feedback to help user see which dot the tooltip is for **/
@@ -91,51 +106,52 @@
       padding: 0;
       margin: 0;
     }
-
   </style>
 </head>
 
 <body onload="init()">
 
-  <div class="form-check">
-    <input class="form-check-input" id="alzheimersdisease" type="checkbox" checked>
-    <label class="form-check-label" for="alzheimersdisease">Alzheimer's Disease</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="cancer" type="checkbox" checked>
-    <label class="form-check-label" for="cancer">Cancer</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="clrd" type="checkbox" checked>
-    <label class="form-check-label" for="clrd">CLRD</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="diabetes" type="checkbox" checked>
-    <label class="form-check-label" for="diabetes">Diabetes</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="heartdisease" type="checkbox" checked>
-    <label class="form-check-label" for="heartdisease">Heart Disease</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="influenzaandpneumonia" type="checkbox" checked>
-    <label class="form-check-label" for="influenzaandpneumonia">Influenza and Pneumonia</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="kidneydisease" type="checkbox" checked>
-    <label class="form-check-label" for="kidneydisease">Kidney Disease</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="stroke" type="checkbox" checked>
-    <label class="form-check-label" for="stroke">Stroke</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="suicide" type="checkbox" checked>
-    <label class="form-check-label" for="suicide">Suicide</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" id="unintentionalinjuries" type="checkbox" checked>
-    <label class="form-check-label" for="unintentionalinjuries">Unintentional Injuries</label>
+  <div id="forms">
+    <div class="form-check">
+      <input class="form-check-input" id="alzheimersdisease" type="checkbox" checked>
+      <label class="form-check-label" for="alzheimersdisease">Alzheimer's Disease</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="cancer" type="checkbox" checked>
+      <label class="form-check-label" for="cancer">Cancer</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="clrd" type="checkbox" checked>
+      <label class="form-check-label" for="clrd">CLRD</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="diabetes" type="checkbox" checked>
+      <label class="form-check-label" for="diabetes">Diabetes</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="heartdisease" type="checkbox" checked>
+      <label class="form-check-label" for="heartdisease">Heart Disease</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="influenzaandpneumonia" type="checkbox" checked>
+      <label class="form-check-label" for="influenzaandpneumonia">Influenza and Pneumonia</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="kidneydisease" type="checkbox" checked>
+      <label class="form-check-label" for="kidneydisease">Kidney Disease</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="stroke" type="checkbox" checked>
+      <label class="form-check-label" for="stroke">Stroke</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="suicide" type="checkbox" checked>
+      <label class="form-check-label" for="suicide">Suicide</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" id="unintentionalinjuries" type="checkbox" checked>
+      <label class="form-check-label" for="unintentionalinjuries">Unintentional Injuries</label>
+    </div>
   </div>
 
 
@@ -146,7 +162,7 @@
 </body>
 
 <script>
-    $("#alzheimersdisease").change(function() {
+  $("#alzheimersdisease").change(function() {
     var display = this.checked ? 'block' : 'none';
     d3.selectAll(".alzheimersdisease").style("display", display);
   });
@@ -360,6 +376,8 @@
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
+      
+      d3.select("#forms").style("left", (width + margin.left + margin.right - 200) + "px").style("top", margin.top + "px");
 
 
 
@@ -367,7 +385,4 @@
       console.log("Error loading file");
     });
   }
-
-</script>
-
-</html>
+</script></html>
