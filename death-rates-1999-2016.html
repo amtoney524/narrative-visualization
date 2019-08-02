@@ -11,6 +11,10 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- Material Icons font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
   <title>NCHS - Leading Causes of Death: United States</title>
 
@@ -51,29 +55,61 @@
       stroke: #fff;
     }
 
-    mark {
-      border-radius: 3px;
-      color: white
-    }
-
-    mark.hd {
-      background-color: rgb(191, 60, 175);
-    }
-
-    mark.st {
-      background-color: rgb(35, 171, 216);
-    }
-
     #forms {
-      width: 180px;
+      width: 220px;
       font-size: 12px;
-      line-height: 18px;
       position: absolute;
       z-index: 10;
       background-color: white;
       border: 1px solid lightgrey;
       border-radius: 2px;
       padding: 4px;
+      vertical-align: middle;
+    }
+    
+    .icon {
+      font-size: 20px;
+      vertical-align: middle;
+    }
+    
+    .az {
+      color:  rgb(175, 240, 91);
+    }
+    
+    .cr {
+      color: rgb(254, 75, 131);
+    }
+    
+    .cd {
+      color: rgb(82, 246, 103);
+    }
+    
+    .db {
+      color: rgb(226, 183, 47);
+    }
+    
+    .hd {
+      color: rgb(191, 60, 175);
+    }
+    
+    .if {
+       color:  rgb(29, 223, 163);
+    }
+    
+    .kd {
+      color: rgb(110, 64, 170);
+    }
+    
+    .st {
+      color:  rgb(35, 171, 216);
+    }
+    
+    .su {
+      color: rgb(255, 120, 71);
+    }
+    
+    .ui {
+      color: rgb(76, 110, 219);
     }
     
     #forms > div {
@@ -114,43 +150,43 @@
   <div id="forms">
     <div class="form-check">
       <input class="form-check-input" id="alzheimersdisease" type="checkbox" checked>
-      <label class="form-check-label" for="alzheimersdisease">Alzheimer's Disease</label>
+      <label class="form-check-label" for="alzheimersdisease">Alzheimer's Disease <i class="material-icons icon az">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="cancer" type="checkbox" checked>
-      <label class="form-check-label" for="cancer">Cancer</label>
+      <label class="form-check-label" for="cancer">Cancer <i class="material-icons icon cr">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="clrd" type="checkbox" checked>
-      <label class="form-check-label" for="clrd">CLRD</label>
+      <label class="form-check-label" for="clrd">CLRD <i class="material-icons icon cd">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="diabetes" type="checkbox" checked>
-      <label class="form-check-label" for="diabetes">Diabetes</label>
+      <label class="form-check-label" for="diabetes">Diabetes <i class="material-icons icon db">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="heartdisease" type="checkbox" checked>
-      <label class="form-check-label" for="heartdisease">Heart Disease</label>
+      <label class="form-check-label" for="heartdisease">Heart Disease <i class="material-icons icon hd">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="influenzaandpneumonia" type="checkbox" checked>
-      <label class="form-check-label" for="influenzaandpneumonia">Influenza and Pneumonia</label>
+      <label class="form-check-label" for="influenzaandpneumonia">Influenza and Pneumonia <i class="material-icons icon if">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="kidneydisease" type="checkbox" checked>
-      <label class="form-check-label" for="kidneydisease">Kidney Disease</label>
+      <label class="form-check-label" for="kidneydisease">Kidney Disease <i class="material-icons icon kd">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="stroke" type="checkbox" checked>
-      <label class="form-check-label" for="stroke">Stroke</label>
+      <label class="form-check-label" for="stroke">Stroke <i class="material-icons icon st">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="suicide" type="checkbox" checked>
-      <label class="form-check-label" for="suicide">Suicide</label>
+      <label class="form-check-label" for="suicide">Suicide <i class="material-icons icon su">linear_scale</i></label>
     </div>
     <div class="form-check">
       <input class="form-check-input" id="unintentionalinjuries" type="checkbox" checked>
-      <label class="form-check-label" for="unintentionalinjuries">Unintentional Injuries</label>
+      <label class="form-check-label" for="unintentionalinjuries">Unintentional Injuries <i class="material-icons icon ui">linear_scale</i></label>
     </div>
   </div>
 
@@ -377,7 +413,9 @@
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
       
-      d3.select("#forms").style("left", (width + margin.left + margin.right - 200) + "px").style("top", (margin.top - 20)  + "px");
+      d3.select("#forms").style("left", (width + margin.left + margin.right - 240) + "px").style("top", (margin.top - 20)  + "px");
+      
+      
 
 
 
