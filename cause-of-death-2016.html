@@ -38,7 +38,6 @@
       font-weight: bold;
       text-align: right;
     }
-
   </style>
 </head>
 
@@ -73,7 +72,7 @@
       var margin = {
           top: 40,
           right: 62,
-          bottom: 50,
+          bottom: 180,
           left: 62
         },
         width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
@@ -107,7 +106,11 @@
       svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(d3.scaleBand().domain(causes).range([0, width]))); // format ticks to remove ',' from years
+        .call(d3.axisBottom(d3.scaleBand().domain(causes).range([0, width]))).selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)"); // format ticks to remove ',' from years
 
       // Generate the y axis
       svg.append("g")
@@ -136,7 +139,7 @@
       svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
-        .attr("y", height + 40)
+        .attr("y", height + 140)
         .text("Cause of Death");
 
       // add y-axis
@@ -159,7 +162,4 @@
       console.log("Error loading file");
     });
   }
-
-</script>
-
-</html>
+</script></html>
