@@ -181,10 +181,7 @@
             return yScale(d["Age-adjusted Death Rate"])
           })
           .attr("r", 5)
-          .style("fill", function(d) {
-            var index = causes.indexOf(d["Cause Name"]);
-            return d3.interpolateRainbow((index / causes.length));
-          });
+          .style("fill", "rgb(0, 123, 255)");
       }
 
       append_circle(data_heart_disease);
@@ -206,7 +203,7 @@
 
       d3.select("body").append("div")
         .attr("class", "annotation")
-        .text("From its peak in 1999, the age-adjusted death rate for Heart Disease has decreased nearly 38% from 266.5 to 165.5")
+        .text("From their peak in 1999, the age-adjusted death rates for heart disease have decreased nearly 38% from 266.5 to 165.5")
         .style("left", ((window.innerWidth - margin.right - 500) + "px"))
         .style("top", (margin.top + "px"));
 
