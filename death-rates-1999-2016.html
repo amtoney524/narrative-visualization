@@ -98,8 +98,16 @@
 <body onload="init()">
 
   <div class="form-check">
+    <input class="form-check-input" id="alzheimersdisease" type="checkbox" checked>
+    <label class="form-check-label" for="alzheimersdisease">Alzheimer's Disease</label>
+  </div>
+  <div class="form-check">
     <input class="form-check-input" id="cancer" type="checkbox" checked>
     <label class="form-check-label" for="cancer">Cancer</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="clrd" type="checkbox" checked>
+    <label class="form-check-label" for="clrd">CLRD</label>
   </div>
   <div class="form-check">
     <input class="form-check-input" id="diabetes" type="checkbox" checked>
@@ -110,8 +118,24 @@
     <label class="form-check-label" for="heartdisease">Heart Disease</label>
   </div>
   <div class="form-check">
+    <input class="form-check-input" id="influenzaandpneumonia" type="checkbox" checked>
+    <label class="form-check-label" for="influenzaandpneumonia">Influenza and Pneumonia</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="kidneydisease" type="checkbox" checked>
+    <label class="form-check-label" for="kidneydisease">Kidney Disease</label>
+  </div>
+  <div class="form-check">
     <input class="form-check-input" id="stroke" type="checkbox" checked>
     <label class="form-check-label" for="stroke">Stroke</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="suicide" type="checkbox" checked>
+    <label class="form-check-label" for="suicide">Suicide</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" id="unintentionalinjuries" type="checkbox" checked>
+    <label class="form-check-label" for="unintentionalinjuries">Unintentional Injuries</label>
   </div>
 
 
@@ -122,9 +146,17 @@
 </body>
 
 <script>
+    $("#alzheimersdisease").change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".alzheimersdisease").style("display", display);
+  });
   $('#cancer').change(function() {
     var display = this.checked ? 'block' : 'none';
     d3.selectAll(".cancer").style("display", display);
+  });
+  $('#clrd').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".clrd").style("display", display);
   });
   $('#diabetes').change(function() {
     var display = this.checked ? 'block' : 'none';
@@ -134,9 +166,25 @@
     var display = this.checked ? 'block' : 'none';
     d3.selectAll(".heartdisease").style("display", display);
   });
+  $('#influenzaandpneumonia').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".influenzaandpneumonia").style("display", display);
+  });
+  $('#kidneydisease').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".kidneydisease").style("display", display);
+  });
   $('#stroke').change(function() {
     var display = this.checked ? 'block' : 'none';
     d3.selectAll(".stroke").style("display", display);
+  });
+  $('#suicide').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".suicide").style("display", display);
+  });
+  $('#unintentionalinjuries').change(function() {
+    var display = this.checked ? 'block' : 'none';
+    d3.selectAll(".unintentionalinjuries").style("display", display);
   });
 
   // local test data: 
@@ -154,7 +202,6 @@
     width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
     ,
     height = window.innerHeight - margin.top - margin.bottom; // Use the window's height, substract top and bottom margins
-
 
 
   async function init() {
@@ -237,7 +284,7 @@
         svg.append("path")
           .datum(data_set) // Binds data to the line 
           .attr("class", function(d) {
-            return "line" + " " + (d[0]["Cause Name"]).replace(/\s+/g, '').toLowerCase();
+            return "line" + " " + (d[0]["Cause Name"]).replace(/\s+/g, '').replace(/\'/g, "").toLowerCase();
           })
           .style("stroke", function(d) {
             var index = causes.indexOf(d[0]["Cause Name"]);
@@ -268,7 +315,7 @@
           .data(data_set)
           .enter().append("circle") // Uses the enter().append() method
           .attr("class", function(d) {
-            return "dot" + " " + (d["Cause Name"]).replace(/\s+/g, '').toLowerCase();
+            return "dot" + " " + (d["Cause Name"]).replace(/\s+/g, '').replace(/\'/g, "").toLowerCase();
           }) // Assign a class for styling
           .attr("cx", function(d, i) {
             return xScale(d.Year)
