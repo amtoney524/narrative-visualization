@@ -11,10 +11,9 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+
   <!-- Material Icons font -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <title>NCHS - Leading Causes of Death: United States</title>
 
@@ -66,53 +65,53 @@
       padding: 4px;
       vertical-align: middle;
     }
-    
+
     .icon {
       font-size: 20px;
       vertical-align: middle;
     }
-    
+
     .az {
-      color:  rgb(175, 240, 91);
+      color: rgb(175, 240, 91);
     }
-    
+
     .cr {
       color: rgb(254, 75, 131);
     }
-    
+
     .cd {
       color: rgb(82, 246, 103);
     }
-    
+
     .db {
       color: rgb(226, 183, 47);
     }
-    
+
     .hd {
       color: rgb(191, 60, 175);
     }
-    
+
     .if {
-       color:  rgb(29, 223, 163);
+      color: rgb(29, 223, 163);
     }
-    
+
     .kd {
       color: rgb(110, 64, 170);
     }
-    
+
     .st {
-      color:  rgb(35, 171, 216);
+      color: rgb(35, 171, 216);
     }
-    
+
     .su {
       color: rgb(255, 120, 71);
     }
-    
+
     .ui {
       color: rgb(76, 110, 219);
     }
-    
-    #forms > div {
+
+    #forms>div {
       margin-left: 6px;
     }
 
@@ -398,24 +397,34 @@
 
       append_circle(data_us);
 
-      // add x-axis
+      // add x-axis title
       svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + 40)
         .text("Year");
 
-      // add y-axis
+      // add y-axis title
       svg.append("text")
         .attr("text-anchor", "end")
         .attr("y", 6)
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
-      
-      d3.select("#forms").style("left", (width + margin.left + margin.right - 240) + "px").style("top", (margin.top - 20)  + "px");
-      
-      
+
+      // Add title
+      svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", (margin.top / 3))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("text-decoration", "underline")
+        .text("US Leading Causes of Death: 1999-2016");
+
+
+      d3.select("#forms").style("left", (width + margin.left + margin.right - 240) + "px").style("top", (margin.top - 20) + "px");
+
+
 
 
 

@@ -139,15 +139,15 @@
         .attr("height", function(d) {
           return height - yScale(d["Age-adjusted Death Rate"]);
         });
-
-      // add x-axis
+      
+      // add x-axis title
       svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + 120)
         .text("Cause of Death");
 
-      // add y-axis
+      // add y-axis title
       svg.append("text")
         .attr("text-anchor", "end")
         .attr("y", 6)
