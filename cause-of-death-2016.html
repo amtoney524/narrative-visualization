@@ -72,7 +72,7 @@
       var margin = {
           top: 40,
           right: 62,
-          bottom: 160,
+          bottom: 140,
           left: 62
         },
         width = window.innerWidth - margin.left - margin.right // Use the window's width, subtract left & right margins 
@@ -110,7 +110,7 @@
         .style("text-anchor", "end")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
-        .attr("transform", "rotate(-65)"); // format ticks to remove ',' from years
+        .attr("transform", "rotate(-45)"); // format ticks to remove ',' from years
 
       // Generate the y axis
       svg.append("g")
@@ -139,7 +139,7 @@
       svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
-        .attr("y", height + 140)
+        .attr("y", height + 120)
         .text("Cause of Death");
 
       // add y-axis
