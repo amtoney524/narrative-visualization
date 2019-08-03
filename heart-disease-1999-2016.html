@@ -32,6 +32,11 @@
     g.x.axis>.tick:nth-child(2) {
       display: none;
     }
+    
+    mark {
+      background-color: rgba(0, 123, 255, .1);
+      border-radius: 2px;
+    }
 
 
     /* Lines don't have a fill, stroke colors are set in d3 */
@@ -197,12 +202,21 @@
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
+      
+      // add title
+      svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Heart Disease - Age-Adjusted Death Rates: 1999-2016");
 
       d3.select("body").append("div")
         .attr("class", "annotation")
-        .text("From their peak in 1999, the age-adjusted death rates for heart disease have decreased nearly 38% from 266.5 to 165.5")
+        .html("<mark> Age-adjusted death rate has decreased <br>&nbsp;nearly 38% from its peak in 1999 </mark>")
         .style("left", ((window.innerWidth - margin.right - 500) + "px"))
-        .style("top", (margin.top + "px"));
+        .style("top", (height/2 + "px"));
 
 
 
