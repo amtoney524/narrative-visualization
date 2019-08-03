@@ -28,11 +28,15 @@
       margin: 0;
     }
 
+    mark {
+      background-color: rgba(0, 123, 255, .1);
+      border-radius: 2px;
+    }
+
     .annotation {
       position: absolute;
       margin: 0;
       padding: 0;
-      float: right;
       z-index: 10;
       width: 500px;
       font-weight: bold;
@@ -61,7 +65,7 @@
     var data = d3.csv(data_src).then(function(data) {
 
       var years = [1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016];
-      var causes = ["Kidney disease", "Heart disease", "Cancer", "Suicide", "Diabetes", "Alzheimer's disease", "CLRD", "Influenza and pneumonia", "Stroke", "Unintentional injuries"]
+      var causes = [ "Heart disease", "Cancer", "Unintentional injuries", "CLRD", "Stroke", "Alzheimer's disease", "Diabetes", "Influenza and pneumonia", "Suicide", "Kidney disease"];
 
       // pull only US data from the list (not states), for year 2016, and filter out the cause "All Causes"
       var data_us = data.filter(function(d) {
@@ -86,7 +90,7 @@
       // X scale will use the cause
       var xScale = d3.scaleBand()
         .domain(causes) // input: years
-        .padding(0.1)
+        .padding(0.2)
         .range([0, width]); // output
 
       // Y scale will use the deaths for the year
@@ -150,12 +154,20 @@
         .attr("transform", "rotate(-90)")
         .text("Age-Adjusted Death Rate");
 
+      // Add title
+      svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", (margin.top / 3))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("text-decoration", "underline")
+        .text("US Leading Causes of Death: 2016");
+
       d3.select("body").append("div")
         .attr("class", "annotation")
-        .text("2016's leading cause of death is heart disease, with an adjusted death rate of 165.5 per 100,000 population")
+        .html("<mark> 2016's leading cause of death is heart disease, <br>&nbsp;with an adjusted death rate of 165.5 per 100,000 population </mark>")
         .style("left", ((window.innerWidth - margin.right - 500) + "px"))
-        .style("top", (margin.top + "px"));
-
+        .style("top", (height / 2 + "px"));
 
 
     }).catch(function() {
